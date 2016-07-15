@@ -13,6 +13,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
 	if (err) throw err;
+	console.log("connected as id " + connection.threadId);
 });
 
 connection.query('SELECT * FROM products', function(err, res) {
@@ -40,7 +41,7 @@ connection.query('SELECT * FROM products', function(err, res) {
 		var userPurchase = answers.purchase;
 		var stockAmount = parseInt(answers.amountPurchased);
 		var tableIndex = answers.purchase - 1;
-		
+
 		if (res[tableIndex].stockQuantity >= stockAmount) {
 			var reduceStockAmount = res[tableIndex].stockQuantity - stockAmount;
 
@@ -49,19 +50,23 @@ connection.query('SELECT * FROM products', function(err, res) {
 			}, {
 				itemID: res[tableIndex].itemID
 			}], function(err, res) {
+				if (err) throw err;
 				console.log("Stock updated!!");
 			});
 
 			purchaseTotal = res[tableIndex].price * stockAmount;
 			console.log("You bought " + stockAmount + " " + res[tableIndex].productName + "(s) at the price of " + "$" + purchaseTotal + "!");
+			connection.end();
 		} else {
-			console.log("We don't have enough in stock for your purchase.");
+			console.log("\nWe don't have enough in stock for your purchase.");
+			connection.end();
 			return;
 		}
-
 	})
-	connection.end();
 });
+
+
+
 
 
 
