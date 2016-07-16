@@ -27,7 +27,6 @@ The View Low Inventory option shows the manager where the stock is below or equa
 ![lowinventory png](https://cloud.githubusercontent.com/assets/8932227/16897431/fdbcd458-4b76-11e6-913b-00369fba7381.png)
 
 The Add to Inventory option allows the manager to add more items to low stock.
-It will then add the amount back to the stock.
 ![addinventory png](https://cloud.githubusercontent.com/assets/8932227/16897440/5a51384e-4b77-11e6-9eb3-a2ade4714657.png)
 
 The Add New Product option allows the manager to add a product to the table.
