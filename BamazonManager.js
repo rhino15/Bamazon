@@ -19,7 +19,7 @@ var startManagerView = function() {
 	inquirer.prompt([{
 		type: 'list',
 		message: "Manager Options:",
-		choices: ['View Products', 'View Low Inventory', 'Add to Inventory','Add New Product'],
+		choices: ['View Products', 'View Low Inventory', 'Add to Inventory','Add New Product', 'Quit Manager Mode'],
 		name: 'action'
 	}]).then(function(answers) {
 		switch(answers.action) {
@@ -35,8 +35,12 @@ var startManagerView = function() {
 			case 'Add New Product':
 				addNewProduct();
 				break;
+			case 'Quit Manager Mode':
+				console.log("\nYou didn't pick an option.");
+				exitManagerView();
+				break;
 			default:
-				console.log("You didn't pick an option.");
+				console.log("adding default");
 		}
 	});
 }
