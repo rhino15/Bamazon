@@ -60,7 +60,6 @@ function userChoice() {
 		});
 }
 
-
 function showOrderAndUpdateTable(item, quantityOfItem) {
 	connection.query('SELECT * FROM products', function(err, res) {
 		var tableIndex = item - 1;
