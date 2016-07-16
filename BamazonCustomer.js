@@ -77,7 +77,7 @@ function showOrderAndUpdateTable(item, quantityOfItem) {
 			});
 
 			purchaseTotal = res[tableIndex].price * quantityOfItem;
-			console.log("You bought " + quantityOfItem + " " + res[tableIndex].productName + "(s) at the price of " + "$" + purchaseTotal.toFixed(2) + "!");
+			console.log("\nYou bought " + quantityOfItem + " " + res[tableIndex].productName + "(s) at the price of " + "$" + purchaseTotal.toFixed(2) + "!\n");
 			showStore();
 		} else {
 			console.log("\nWe don't have enough in stock for your purchase.");
